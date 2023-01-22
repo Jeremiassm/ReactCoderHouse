@@ -1,6 +1,7 @@
 //IMPORTACIONES
 
 //Modulos
+
 //Estilos
 import './ItemList.css'
 
@@ -8,7 +9,7 @@ import './ItemList.css'
 import Item from '../item/Item'
 
 //LOGICA
-const ItemList = () => { //Funcion constructora
+const ItemList = (props) => { //Funcion constructora
 
     //Llamada a array de objetos
     const listaDeProductos = [
@@ -17,7 +18,7 @@ const ItemList = () => { //Funcion constructora
             nombre:"Pc de escritorio 1",
             descripcion:"Pc completa",
             precio:160000,
-            categoria:"Pcs armadas",
+            categoria:"Pcs",
             stock:2,
         },
         {
@@ -46,7 +47,15 @@ const ItemList = () => { //Funcion constructora
         },
     ]
     //Transformar estos datos en elementos renderizables
-    const listaDeProductosRenderizables = listaDeProductos.map(productos => <Item key={productos.id} id={"producto" + productos.id} data ={productos} />)
+    
+    let productosRenderizables=[]
+    
+    if(props.categoriaName === "all"){
+        productosRenderizables = listaDeProductos.map( productos => <Item key={productos.id} id={"producto" + productos.id} data ={productos}/>)
+    }
+        const productosPorCategoria = listaDeProductos.filter(e=> e.categoria === props.categoriaName)
+        productosRenderizables = productosPorCategoria.map( productos => <Item key={productos.id} id={"producto" + productos.id} data ={productos}/>)
+
 
     //Iterar nuestro array de objetos
 
@@ -57,11 +66,7 @@ const ItemList = () => { //Funcion constructora
 
         <div>
             <p>Este es el item List</p>
-
-            <div>
-                <h1>Banner publicitario</h1>
-            </div>
-            {listaDeProductosRenderizables}
+            {productosRenderizables}
         </div>
     )
 
