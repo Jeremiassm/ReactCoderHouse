@@ -1,7 +1,8 @@
 //IMPORTACIONES
 
 //Modulos
-/* import { useState } from 'react' */
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 //Componentes
 import ItemCount from '../itemCount/ItemCount'
@@ -12,16 +13,22 @@ import './Item.css'
 //LOGICA
 const Item = (props) => { //Funcion constructora
 
-    const {nombre,descripcion, categoria, precio, stock} = props.data
+    const {title, category,description, price, id} = props.data
     
     return(
-        <div>
-            <p>{categoria}</p>
-            <p>{nombre}</p>
-            <p>{descripcion}</p>
-            <p>{precio}</p>
-            <ItemCount stock={stock}/>
-        </div>
+        <Card className='card-separated'>
+        <Card.Header as="h5">{category}</Card.Header>
+        <Card.Body>
+            <Card.Title>{title} || Value ={price}</Card.Title>
+            <Card.Text>
+                {description}
+            </Card.Text>
+            <Link to={`/producto/${id}`}> Ver Detalle del Producto </Link>
+            <ItemCount stock={10} />
+            
+        </Card.Body>
+    </Card>
+
         
     )
    

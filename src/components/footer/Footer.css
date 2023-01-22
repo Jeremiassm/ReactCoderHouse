@@ -1,0 +1,13 @@
+.footer {
+    background-color: rgb(18, 18, 152);
+    color: white;
+    text-align: center;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p{
+padding: 1rem 0;
+}

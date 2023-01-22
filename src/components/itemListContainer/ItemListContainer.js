@@ -1,7 +1,6 @@
 //IMPORTACIONES
 
 //Modulos
-import { useState } from 'react'
 //Estilos
 import './ItemListContainer.css'
 
@@ -11,40 +10,20 @@ import ItemList from '../itemList/ItemList'
 //Core
 
 //LOGICA
-const ItemListContainer = () => { //Funcion constructora
+const ItemListContainer = (props) => { //Funcion constructora
 
-    const [categoria,setCategoria] = useState("all")
 
-    const categoriaPcs =() =>{
-        setCategoria("Pcs")
-    }
-    const categoriaProcesadores =() =>{
-        setCategoria("Procesadores")
-    }
-    const categoriaFuentesDePoder =() =>{
-        setCategoria("Fuentes de poder")
-    }
-    const categoriaPlacasDeVideo =() =>{
-        setCategoria("Placas de video")
-    }
-    const categoriaAll =() =>{
-        setCategoria("all")
-    }
     //Retorno que se va a renderizar
     return(
         <div className='main-section'>
-        <p>Item list container</p>
-        <button onClick={categoriaPcs}> Pcs</button>
-        <button onClick={categoriaProcesadores}> Procesadores</button>
-        <button onClick={categoriaFuentesDePoder}> Fuentes de poder</button>
-        <button onClick={categoriaPlacasDeVideo}> Placas de video</button>
-        <button onClick={categoriaAll}> Todo</button>
+        <p>{props.greeting}</p>
 
         <div>
-                <h1>Banner publicitario</h1>
+            <h1>BANER PUBLICITARIO</h1>
         </div>
-        <ItemList categoriaName={categoria}/>
-        </div>
+        <ItemList />
+    </div>
+    
 
     )
 }

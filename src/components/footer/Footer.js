@@ -9,9 +9,10 @@ const Footer = () => { //Funcion constructora
     
     //Retorno que se va a renderizar
     return(
-       <p>
-        Footer
-       </p>
+        <footer className="footer">
+        <p>WebApp powered by React</p>
+        </footer>
+    
 
     )
 }
